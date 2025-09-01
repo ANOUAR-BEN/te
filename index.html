@@ -484,7 +484,7 @@
     };
 
     // Message pré-rempli (sera mis à jour dynamiquement)
-    let messageTemplate = `Salut ${CONFIG.name} 👋\n\n Voici mon numéro : `;
+    let messageTemplate = `Salut ${CONFIG.name} 👋\n\n Voici mon numéro  `;
 
     // Fonction pour générer le message personnalisé
     function generatePersonalizedMessage() {
@@ -494,7 +494,7 @@
       if (userName) {
         return `Salut ${CONFIG.name} 👋\n\nJe suis ${userName}`;
       } else {
-        return `Salut ${CONFIG.name} 👋\n\nJe viens de voir ta carte de contact. Voici mon numéro : `;
+        return `Salut ${CONFIG.name} 👋\n\n Voici mon numéro `;
       }
     }
 
