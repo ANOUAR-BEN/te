@@ -1,0 +1,15 @@
+
+Anouar — QR Contact (rapide)
+
+1) Héberge ce dossier (Netlify conseillé).
+2) Crée un QR vers l'URL finale :
+   - Pour auto-télécharger le contact : .../index.html?auto=1
+   - Sinon : .../index.html
+3) Teste WhatsApp et SMS (ils pointent sur +212694216714).
+
+Infos:
+Nom: Anouar
+Téléphone: +212694216714
+Email: anouar19topo@gmail.com
+Titre: Topographie
+Site: -

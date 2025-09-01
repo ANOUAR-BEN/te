@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <title>Carte QR — Contact Nadia SLIMANI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px 16px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .floating-element {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+    }
+
+    .floating-element:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+    }
+
+    .floating-element:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 80%;
+      left: 20%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0px) rotate(360deg);
+        opacity: 0.7;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 2;
+      animation: slideUp 0.8s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: white;
+      animation: pulse 2s infinite;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .subtitle {
+      color: #718096;
+      font-size: 15px;
+      margin: 16px 0 24px;
+      line-height: 1.5;
+    }
+
+    .contact-info {
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      background: #f7fafc;
+      border-radius: 16px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+      z-index: 1;
+    }
+
+    .contact-item:hover::before {
+      width: 4px;
+    }
+
+    .contact-item:hover {
+      background: #edf2f7;
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      font-size: 18px;
+      margin-right: 12px;
+      min-width: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: #2d3748;
+      margin-right: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-value {
+      color: #4a5568;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 20px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: white;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-sms {
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      color: white;
+      box-shadow: 0 8px 20px rgba(66, 153, 225, 0.3);
+    }
+
+    .btn-sms:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(66, 153, 225, 0.4);
+    }
+
+    .btn-call {
+      background: linear-gradient(135deg, #f56565, #e53e3e);
+      color: white;
+      box-shadow: 0 8px 20px rgba(245, 101, 101, 0.3);
+    }
+
+    .btn-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(245, 101, 101, 0.4);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+      color: #4a5568;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 20px;
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .section h3 {
+      color: #2d3748;
+      font-size: 18px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section p {
+      color: #718096;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .tip {
+      background: linear-gradient(135deg, #fef5e7, #fed7aa);
+      border: 1px solid #f6ad55;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #744210;
+    }
+
+    .tip code {
+      background: rgba(116, 66, 16, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Consolas', monospace;
+    }
+
+    @media (min-width: 480px) {
+      .actions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .btn-whatsapp {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Animation de chargement */
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 8px;
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .btn.loading .loading-spinner {
+      display: inline-block;
+    }
+
+    .btn.loading .btn-text {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="profile-header">
+        <div class="profile-avatar">👋</div>
+        <div class="name">Nadia SLIMANI</div>
+        <div class="title">Ingénieure Géomètre Topographe, inscrite à l'ONIGT</div>
+        <p class="subtitle">Tu peux sauvegarder mon contact et m'envoyer ton numéro en 1 clic.</p>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-label">Téléphone :</div>
+          <div class="contact-value">+212 694 216 714</div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-label">Email :</div>
+          <div class="contact-value">anouar19topo@gmail.com</div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-label">Site web :</div>
+          <div class="contact-value">En développement</div>
+        </div>
+      </div>
+
+      <div class="actions-grid">
+        <a class="btn btn-whatsapp" id="waBtn" href="#" rel="nofollow">
+          <div class="loading-spinner"></div>
+          <span class="btn-text">🟢 WhatsApp</span>
+        </a>
+        
+        <a class="btn btn-sms" href="#" id="smsBtn">
+          <div class="loading-spinner"></div>
+          <span class="btn-text">💬 SMS</span>
+        </a>
+        
+        <a class="btn btn-call" href="tel:+212694216714">
+          <div class="loading-spinner"></div>
+          <span class="btn-text">📞 Appeler</span>
+        </a>
+        
+        <button class="btn btn-secondary" id="saveContact">
+          <div class="loading-spinner"></div>
+          <span class="btn-text">💾 Sauvegarder</span>
+        </button>
+      </div>
+
+      <div class="section">
+        <h3>📩 Partage ton numéro</h3>
+        <p>Choisis WhatsApp ou SMS, le message est déjà prêt avec mon nom. Un simple clic et c'est parti !</p>
+      </div>
+
+      <div class="tip">
+        <strong>💡 Astuce :</strong> Ajoute <code>?auto=1</code> à l'URL pour déclencher le téléchargement automatique du contact.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration
+    const CONFIG = {
+      name: "Nadia SLIMANI",
+      phone: "+212694216714",
+      phoneFormatted: "+212 694 216 714",
+      email: "anouar19topo@gmail.com",
+      title: "Ingénieure Géomètre Topographe"
+    };
+
+    // Message pré-rempli
+    const messageTemplate = `Salut ${CONFIG.name} 👋\n\nJe viens de voir ta carte de contact. Voici mon numéro : `;
+
+    // Fonctions utilitaires
+    function showLoading(button) {
+      button.classList.add('loading');
+      setTimeout(() => {
+        button.classList.remove('loading');
+      }, 1500);
+    }
+
+    function generateWhatsAppLink() {
+      const phoneNumber = CONFIG.phone.replace(/[^0-9]/g, '');
+      const encodedMessage = encodeURIComponent(messageTemplate);
+      return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    }
+
+    function generateSMSLink() {
+      return `sms:${CONFIG.phone}?body=${encodeURIComponent(messageTemplate)}`;
+    }
+
+    function generateVCF() {
+      const vcfContent = `BEGIN:VCARD
+VERSION:3.0
+FN:${CONFIG.name}
+N:SLIMANI;Nadia;;;
+ORG:${CONFIG.title}
+TEL;TYPE=CELL:${CONFIG.phone}
+EMAIL;TYPE=INTERNET:${CONFIG.email}
+END:VCARD`;
+
+      return 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcfContent);
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Configuration des boutons
+      const waBtn = document.getElementById('waBtn');
+      const smsBtn = document.getElementById('smsBtn');
+      const saveBtn = document.getElementById('saveContact');
+
+      waBtn.href = generateWhatsAppLink();
+      smsBtn.href = generateSMSLink();
+
+      // Gestion des animations de clic
+      [waBtn, smsBtn].forEach(btn => {
+        btn.addEventListener('click', function() {
+          showLoading(this);
+        });
+      });
+
+      // Sauvegarde du contact
+      saveBtn.addEventListener('click', function() {
+        showLoading(this);
+        
+        const link = document.createElement('a');
+        link.href = generateVCF();
+        link.download = `${CONFIG.name.replace(/\s+/g, '_')}_Contact.vcf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+
+      // Auto-download si paramètre présent
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('auto') === '1') {
+        setTimeout(() => {
+          saveBtn.click();
+        }, 1000);
+      }
+    });
+
+    // Gestion des animations tactiles
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.95)';
+      });
+      
+      btn.addEventListener('touchend', function() {
+        this.style.transform = '';
+      });
+    });
+
+    // Animation des éléments de contact
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+          }, index * 100);
+        }
+      });
+    });
+
+    document.querySelectorAll('.contact-item').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = 'all 0.5s ease';
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>

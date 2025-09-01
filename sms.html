@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SMS rapide</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#0b1220;color:#e2e8f0}
+    .wrap{max-width:720px;margin:0 auto;padding:28px}
+    .card{background:#0f172a;border:1px solid #1f2937;border-radius:22px;padding:24px}
+    input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:#e2e8f0;outline:none}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 16px;border-radius:14px;text-decoration:none;font-weight:700;background:#2563eb;color:white;margin-top:12px}
+    .muted{color:#94a3b8}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>💬 M'envoyer un SMS</h1>
+      <p class="muted">Ton appli SMS s’ouvrira avec un message pré-rempli.</p>
+      <label for="num">Ton numéro (optionnel, tu peux aussi l'écrire après l'ouverture):</label>
+      <input id="num" placeholder="+2126..." />
+      <a id="sms" class="btn" href="#">Ouvrir l'appli SMS</a>
+      <p class="muted">Si rien ne se passe, tape mon numéro : <strong>+212694216714</strong></p>
+    </div>
+  </div>
+  <script>
+    const phone = "+212694216714";
+    function link(body){
+      // iOS/Android gèrent sms: différemment ; ce format marche souvent
+      return "sms:" + phone + "?&body=" + encodeURIComponent(body);
+    }
+    const a = document.getElementById("sms");
+    const input = document.getElementById("num");
+    function build(){ a.href = link("Salam, voici mon numéro: " + (input.value||"")); }
+    input.addEventListener('input', build); build();
+  </script>
+</body>
+</html>
